@@ -1,15 +1,18 @@
 import React from "react";
-import { userStore } from "../../store/config/storeConfig";
+import { useDispatch } from "react-redux";
+/* import { userStore } from "../../store/config/storeConfig"; */
 import { createUser } from "../../store/actions/userActions";
 
 const UserForm = () => {
+  const dispatch = useDispatch()
+
   const newUser = (e) => {
     e.preventDefault();
     const { name, lastname } = e.target;
     if (name.value === "" || lastname.value === "") {
       alert("Intro new user.");
     } else {
-      userStore.dispatch(createUser(name.value, lastname.value));
+      dispatch(createUser(name.value, lastname.value));
       name.value = "";
       lastname.value = "";
     }

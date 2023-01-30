@@ -3,4 +3,7 @@ import { userReducer } from "../reducers/userReducer";
 import { composeWithDevTools } from '@redux-devtools/extension';
 
 // export store to actualize "root" in index.js
-export const userStore = createStore(userReducer, composeWithDevTools());
+export const userStore = () =>{
+  const store = createStore(userReducer, composeWithDevTools());
+  return store;
+} 

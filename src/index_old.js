@@ -4,25 +4,23 @@ import "./index.css";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-// Redux imports
-import { Provider } from "react-redux";
-
 // Import Config Function of App Store
 import { userStore } from "./store/config/storeConfig";
 
 //Styles
 import "bootstrap/dist/css/bootstrap.css";
 
-let userAppStore = userStore();
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <Provider store={userAppStore}>
+// Create a function with root to actualize the react app
+const renderAppp = () =>
+  root.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </Provider>
-);
+  );
+
+renderAppp();
+userStore.subscribe(renderAppp);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

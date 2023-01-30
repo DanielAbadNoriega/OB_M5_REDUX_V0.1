@@ -1,24 +1,35 @@
 import "./App.css";
 import UserForm from "./components/forms/userForm";
 
-/**
- * 1. Create the actions (events) in userActions.js
- */
-// ACTIONS
+//Actions
 import { getUserId } from "./store/actions/userActions";
 
-// 2. Create reducer & import in userReducer.js
+//Reducer
+import { userStore } from "./store/config/storeConfig";
 
-// 3. Hooks to use the state and store.dispatch actions
-import { useSelector, useDispatch } from "react-redux";
+// 1. Create the actions, like events
+// in userActions.js
+
+// 2. Create reducer & import
+// in userReducer.js
+
+// 3. Create the store with the reducer in storeConfig, dispatching calls
+var users = [];
+
+userStore.subscribe(() => {
+  users = userStore.getState();
+  console.log("[ userSubscribe ] Users: ", users);
+});
 
 export function App() {
-  const users = useSelector((state) => state);
-  const dispatch = useDispatch();
 
   // 3. Llamadas
+  /*  const getUsers = () => {
+    userStore.getState();
+  }; */
+
   const getUser = (id) => {
-    dispatch(getUserId(id));
+    userStore.dispatch(getUserId(id));
   };
 
   return (
