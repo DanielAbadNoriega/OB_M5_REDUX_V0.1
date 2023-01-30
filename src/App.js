@@ -1,5 +1,6 @@
 import "./App.css";
 import UserForm from "./components/forms/userForm";
+import FilterUsers from "./components/pure/filterUsers";
 import Users from "./components/pure/users";
 
 // 1. Create the actions (events) in userActions.js
@@ -12,6 +13,7 @@ export function App() {
     <div className="d-flex flex-column align-items-center justify-content-center gap-2">
       <h1 className="text-center mt-2"> Redux </h1>
       <UserForm></UserForm>
+      <FilterUsers></FilterUsers>
       <Users></Users>
     </div>
   );

@@ -19,3 +19,10 @@ export const getUserId = (id) => {
     },
   };
 };
+
+export const filterUser = (filter) => {
+  return {
+    type: "SET_FILTER",
+    filter
+  }
+}

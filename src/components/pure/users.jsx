@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../../store/actions/userActions";
 
 const Users = () => {
-  const users = useSelector((state) => state);
+  const users = useSelector((state) => {
+    console.log("[ Users ] State: ", state);
+    return state.userState;
+  });
   const dispatch = useDispatch();
 
   const getUser = (id) => {

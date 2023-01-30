@@ -4,16 +4,24 @@ import "./index.css";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-// Redux imports
-import { Provider } from "react-redux";
+// REDUX
+import { Provider, useDispatch } from "react-redux";
 
-// Import Config Function of App Store
+// CONFIG FUNCTION APP STORE
 import { userStore } from "./store/config/storeConfig";
 
-//Styles
+// ACTIONS
+import { createUser, filterUser } from "./store/actions/userActions";
+
+// STYLES
 import "bootstrap/dist/css/bootstrap.css";
 
 let userAppStore = userStore();
+userAppStore.subscribe(() =>
+  console.log("[ App ] Store: ", userAppStore.getState())
+);
+userAppStore.dispatch(filterUser("USER"));
+userAppStore.dispatch(createUser("USER 2", ".2"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
