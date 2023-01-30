@@ -19,19 +19,19 @@ const UserForm = () => {
   };
 
   return (
-    <div>
+    <div className="col-4 col-md-4">
       <form
         className="form d-flex flex-column align-items-center justify-content-center"
         onSubmit={newUser}
       >
         <input
-          className="form-control form-control-lg text-center mb-1 "
+          className="form-control form-control-lg text-center mb-2 "
           type="text"
           name="name"
           placeholder="Name"
         />
         <input
-          className="form-control form-control-lg text-center mb-1"
+          className="form-control form-control-lg text-center mb-2"
           type="text"
           name="lastname"
           placeholder="Lastname"
